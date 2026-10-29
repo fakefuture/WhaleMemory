@@ -25,7 +25,3 @@ cold/
 exports/
 evidence/
 private/
-
-# 内部工具产物（不进公开仓库）
-.qoder-credits/
-review/
