@@ -30,7 +30,7 @@
 
 ```powershell
 node bin/psm.mjs init                  # 建 v2 空库
-node bin/selftest.mjs                  # 离线回归 T01–T46；不通过先别用
+node bin/selftest.mjs                  # 离线回归 T01–T47（48 项）；不通过先别用
 node bin/psm.mjs doctor                # 只读体检；FAIL 退出码非零
 node bin/psm.mjs add "用户的工作目录是 D:\work" --tier semantic --scope workspace
 node bin/psm.mjs query "工作目录" --limit 5
@@ -117,6 +117,21 @@ node bin/psm.mjs candidates accept <id> --note "核对来源后采纳"
 默认关闭；打开也只启用“生成候选”，没有自动采纳开关。提示词只许压缩、不许推断、
 不改写取值、冲突不选边；输出要过结构、来源哈希、新取值、否定与条件检查。
 
+## 可选：人格卡补充（默认关闭）
+
+`tools/persona-supplement.mjs` 从**你提供的**语料里提取风格/偏好线索，聚类后生成一份卡片补充提案。
+它默认关闭：不挂 CLI、不写 `store.json`、不内置任何语料路径，只有显式给 `--file` 才运行。
+
+```powershell
+node tools/persona-supplement.mjs --file <语料.md|json> [--limit 8] [--out 提案.md]
+```
+
+- 输出只是 Markdown 提案（`【补充·从语料归纳】` + 来源），**不会修改原人格卡**；
+- 有嵌入服务时按余弦聚类，没有时退回字面聚类；
+- 是否采纳由人决定，建议只把带证据、重复出现的条目并进印象层或卡片的补充区。
+
+隐私：语料由本地提供、只在内存里处理，不上传、不缓存；**不要把个人对话或卡片内容提交到仓库**。
+
 ## 人格 / 印象 / 情绪
 
 - **人格档案**：`persona.traits`，数值走余弦 EMA，分类走分布；`persona set` 显式改档案。
@@ -158,12 +173,12 @@ node eval/run.mjs --write-manifest
 ## 目录结构
 
 ```
-bin/        psm.mjs（CLI）、selftest.mjs（T01–T46 runner）
+bin/        psm.mjs（CLI）、selftest.mjs（T01–T47 runner）
 lib/        repository / lock / fsx / schema / policy / service / service-core /
             retrieval / validation / synth / render / embed / cold / doctor / backup / …
-tools/      capture、calibrate、fake-embed、session-export
+tools/      capture、calibrate、fake-embed、session-export、persona-supplement
 eval/       run.mjs、retrieval/synthesis/emotion 夹具、manifest
-test/       T01–T46 离线回归（node:test，临时目录，自动清理）
+test/       T01–T47 离线回归（node:test，临时目录，自动清理）
 docs/       人格/情绪语料、刻度表、探针集、卡片模板（运行时数据）
 plugin/     dsh-persona-bridge（只读注入）、dsh-memory-capture（定时采集）
 memory/     store.json（空库样例）、embeddings.json（可重建，已 gitignore）
