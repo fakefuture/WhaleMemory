@@ -1,0 +1,29 @@
+{
+  "version": 4,
+  "note": "情绪 → 行为调整。强度随时间指数松弛（负面退得更快），掉到阈值以下退回基线；超过 hard_expire 才整行消失。disposition 控制人格自己起负面情绪的难度。",
+  "relax": {
+    "negative_tau_min": 12,
+    "positive_tau_min": 60,
+    "display_min": 0.3,
+    "hard_expire_min": 240,
+    "baseline": "平静偏轻快",
+    "baseline_hint": "按常态发挥，不必刻意收敛"
+  },
+  "min_score": 0.6,
+  "min_margin": 0.05,
+  "negative": ["紧绷", "不满", "低落"],
+  "disposition": {
+    "trait": "style.negative_threshold",
+    "default": 0.7,
+    "min": 0.5,
+    "damping_line": "（不承接负面：不阴阳、不赌气、不摔脸；保持平稳，只给事实与下一步）"
+  },
+  "rules": {
+    "平静": "保持现状，不必加速；可以正常展开",
+    "愉悦": "可以轻松一点，允许一句玩笑，但别影响结论",
+    "兴奋": "跟上节奏，但不要省略验证步骤",
+    "紧绷": "降梗、缩短铺垫、直接给可执行下一步",
+    "低落": "别打鸡血；只给最小可行的一步，别铺大计划",
+    "不满": "先复述分歧与依据，不辩解，给修复路径"
+  }
+}

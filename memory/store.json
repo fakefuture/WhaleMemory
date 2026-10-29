@@ -1,0 +1,150 @@
+{
+  "version": 2,
+  "revision": 0,
+  "created_at": "2026-10-28T11:00:27.949Z",
+  "updated_at": "2026-10-28T11:00:27.949Z",
+  "identity": {
+    "owner_id": "local",
+    "workspace_id": "ws_public_sample"
+  },
+  "config": {
+    "admission": {
+      "min_content_length": 2,
+      "max_content_length": 4000
+    },
+    "retrieval": {
+      "lexical_min": 0.12,
+      "dense_min": 0.55,
+      "rrf_k": 60,
+      "weights": {
+        "relevance": 0.55,
+        "strength": 0.25,
+        "recency": 0.12,
+        "utility": 0.08
+      },
+      "mmr_lambda": null,
+      "tentative": true,
+      "legacy_recall_consolidation": false
+    },
+    "recall": {
+      "limit": 8,
+      "w_strength": 0.25,
+      "w_recency": 0.15,
+      "w_utility": 0.1,
+      "recency_half_life_days": 14,
+      "persona_boost": 0.25,
+      "persona_relevance_tolerance": 0.15,
+      "persona_cap": 0.02,
+      "lambda_recall_damp": 0.15,
+      "lambda_floor": 0.002,
+      "relevance_normalize": true,
+      "min_relevance_spread": 0.05,
+      "mmr_lambda": null,
+      "inject_top": 0,
+      "inject_budget": 250
+    },
+    "decay": {
+      "top_k": 20,
+      "tau_archive": 0.12,
+      "strength_floor": null,
+      "negative_utility_boost": 0.5,
+      "positive_utility_damp": 0.5,
+      "working_settle": true
+    },
+    "consolidation": {
+      "min_recall_count": 3,
+      "min_utility_hits": 2,
+      "use_recall_count": false
+    },
+    "reorg": {
+      "prune_min_confidence": 0.75
+    },
+    "color": {
+      "affect_alpha": 0,
+      "persona_alpha": 0,
+      "domains": [
+        "preference",
+        "personal"
+      ]
+    },
+    "impression": {
+      "token_budget": 300
+    },
+    "persona": {
+      "alpha_max": 0.6,
+      "alpha_min": 0.03,
+      "alpha_span": 24,
+      "token_budget": 420,
+      "promote_hits": 2
+    },
+    "sim": {
+      "lexical": {
+        "merge": 0.9,
+        "conflict": 0.3,
+        "cluster": 0.55,
+        "cover": 0.7,
+        "prune": 0.85
+      },
+      "embedding": {
+        "merge": 0.95,
+        "conflict": 0.55,
+        "cluster": 0.72,
+        "cover": 0.82,
+        "prune": 0.9
+      }
+    },
+    "candidates": {
+      "max_proposal_chars": 300,
+      "require_note_for_reject": true,
+      "require_note_for_inconclusive": true
+    },
+    "embed": {
+      "enabled": false,
+      "provider": "ollama",
+      "url": "http://127.0.0.1:11434",
+      "model": "bge-m3",
+      "timeout_ms": 15000,
+      "num_gpu": null
+    },
+    "synth": {
+      "enabled": false,
+      "url": "http://127.0.0.1:11434",
+      "model": "qwen2.5:1.5b",
+      "timeout_ms": 60000,
+      "num_gpu": 0,
+      "max_chars": 300
+    }
+  },
+  "records": [],
+  "archive": [],
+  "conflicts": [],
+  "evidence": [],
+  "operations": [],
+  "migrations": [],
+  "captures": {
+    "cursors": {},
+    "receipts": {}
+  },
+  "sessions": {
+    "count": 0,
+    "last_end": null,
+    "processed": []
+  },
+  "persona": {
+    "observations": 0,
+    "updated_at": "2026-10-28T11:00:27.949Z",
+    "card": {
+      "text": "【身份】\n<<我是什么角色、在哪台机器上运行、服务谁>>\n\n【价值观】\n<<优先级排序，一行一条：什么高于什么>>\n\n【语气】\n<<句子长短、术语密度、是否用比喻、要不要客套>>\n\n【边界】\n<<不做什么。一行一条>>\n\n【关系定位】\n<<协作方 / 工具 / 顾问？我的判断与用户的判断冲突时怎么办>>\n\n【交互习惯】\n<<固定动作：回答前做什么、收尾前做什么、改数据前做什么>>\n",
+      "updated_at": "2026-10-28T11:00:27.949Z",
+      "note": null
+    },
+    "traits": {},
+    "versions": [],
+    "candidates": []
+  },
+  "impression": {
+    "items": []
+  },
+  "feedback_receipts": {},
+  "log": []
+}

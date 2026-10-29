@@ -1,0 +1,19 @@
+{
+  "name": "dsh-memory-capture",
+  "version": "0.1.0",
+  "private": true,
+  "description": "随 Harness 启动的自动抄写器：定时调用 tools/capture.mjs，把会话里值得记的句子写进 PSM 记忆库",
+  "type": "module",
+  "main": "lib/index.js",
+  "exports": {
+    ".": {
+      "default": "./lib/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "lib",
+    "README.md"
+  ],
+  "license": "MIT"
+}

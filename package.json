@@ -1,0 +1,22 @@
+{
+  "name": "whale-memory",
+  "version": "0.2.0",
+  "private": false,
+  "type": "module",
+  "description": "WhaleMemory（PSM）外置记忆库：严格存储、范围隔离、候选审核、两路检索，以及人格/情绪只读渲染",
+  "bin": {
+    "psm": "bin/psm.mjs"
+  },
+  "scripts": {
+    "init": "node bin/psm.mjs init",
+    "psm": "node bin/psm.mjs",
+    "embed": "node bin/psm.mjs embed",
+    "calibrate": "node tools/calibrate.mjs",
+    "fake-embed": "node tools/fake-embed.mjs",
+    "test": "node bin/selftest.mjs",
+    "eval": "node eval/run.mjs"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

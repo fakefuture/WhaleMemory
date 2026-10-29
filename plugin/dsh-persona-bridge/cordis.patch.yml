@@ -1,0 +1,8 @@
+# 桥接插件自己的 patch 层（bundle 式安装时用；手动安装见 README）
+# 单一 insert 行：只加一个 system-prompt 段落，名字固定 psm:persona-card。
+- insert:
+    - id: psm-persona-bridge
+      name: 'dsh-persona-bridge'
+      config:
+        root: '<项目根>'
+        cache_ms: 1000

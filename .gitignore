@@ -1,0 +1,31 @@
+node_modules/
+.DS_Store
+Thumbs.db
+
+# 运行期临时文件（原子写会生成 .<name>.<pid>.<rand>.tmp）
+*.tmp
+tmp/
+
+# 向量缓存：体积大、与模型绑定，可用 `psm embed` 重建
+memory/embeddings.json
+
+# 跨进程写锁与锁事件（只对当前机器/进程有意义）
+memory/.psm.lock
+memory/lock-events.log
+
+# 运行状态（按会话记录；不进入公开样例）
+emotion-state.json
+emotion-states.json
+memory/capture-state.json
+memory/probe-runs.json
+
+# 备份、冷存储与私有证据导出（可能含用户原文）
+backups/
+cold/
+exports/
+evidence/
+private/
+
+# 内部工具产物（不进公开仓库）
+.qoder-credits/
+review/

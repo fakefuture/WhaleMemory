@@ -1,0 +1,23 @@
+{
+  "name": "dsh-persona-bridge",
+  "version": "0.1.0",
+  "private": true,
+  "description": "只读桥：把 PSM 记忆库渲染好的人格卡片作为 system-prompt 段落注入（不改库、不联网）",
+  "type": "module",
+  "main": "lib/index.js",
+  "exports": {
+    ".": {
+      "default": "./lib/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "lib",
+    "cordis.patch.yml",
+    "README.md"
+  ],
+  "peerDependencies": {
+    "@deepseek-ai/dsh-system-prompt": "*"
+  },
+  "license": "MIT"
+}
